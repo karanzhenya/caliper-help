@@ -5,18 +5,20 @@ type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
 
 type SuperButtonPropsType = DefaultButtonPropsType & {
     red?: boolean
+    id: string
+    openCarType: (id: string) => void
 }
 
 const MyButton: React.FC<SuperButtonPropsType> = (
     {
-        red, className,
+        red, className, openCarType, id,
         ...restProps
     }
 ) => {
     const finalClassName = `${s.button} ${red ? s.red : s.default} ${className}`
 
     return (
-        <button
+        <button onClick={() => openCarType(id)}
             className={finalClassName}
             {...restProps}
         />

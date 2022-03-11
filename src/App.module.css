@@ -1,0 +1,27 @@
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #cccbcb;
+}
+
+.input {
+    position: relative;
+    left: 40%;
+    top: 30px;
+}
+
+.models {
+    display: flex;
+    flex-direction: column;
+}
+
+.models button {
+    width: 200px;
+    position: relative;
+    left: 100px;
+}
+
+.loading {
+    position: relative;
+    left: 50%;
+}

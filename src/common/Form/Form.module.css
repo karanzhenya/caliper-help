@@ -1,0 +1,13 @@
+.forms {
+    display: flex;
+    gap: 2px;
+    flex-direction: column;
+    padding: 5px;
+    position: fixed;
+    bottom: 40px;
+    right: 60px;
+    z-index: 1;
+}
+.formButton {
+    margin-top: 20px;
+}
