@@ -1,0 +1,20 @@
+.linkButton {
+    display: flex;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 800px) {
+    .linkButton {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 519px) {
+    .linkButton {
+        width: 100px;
+    }
+}

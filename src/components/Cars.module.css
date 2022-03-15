@@ -1,5 +1,14 @@
-.container {
+.containerCars {
     display: flex;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+.containerModels {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 40%;
+    max-width: 200px;
     padding: 20px;
     flex-wrap: wrap;
 }

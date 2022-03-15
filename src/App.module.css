@@ -1,27 +1,18 @@
 .wrapper {
     width: 100%;
     min-height: 100vh;
-    background-color: #cccbcb;
+    background-color: rgb(218, 216, 216);
 }
 
 .input {
-    position: relative;
+    position: absolute;
     left: 40%;
     top: 30px;
 }
 
-.models {
-    display: flex;
-    flex-direction: column;
-}
-
-.models button {
-    width: 200px;
-    position: relative;
-    left: 100px;
-}
-
 .loading {
+    z-index: 5;
     position: relative;
-    left: 50%;
+    left: 45%;
+    margin-top: 20%;
 }

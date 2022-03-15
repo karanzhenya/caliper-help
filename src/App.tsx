@@ -8,7 +8,6 @@ import Form from "./common/Form/Form";
 import CircularProgress from "@mui/material/CircularProgress";
 import {HashRouter, Route, Routes} from 'react-router-dom'
 import {Main} from "./components/Main";
-import { Link } from 'react-router-dom';
 
 export type DataType = {
     car: string

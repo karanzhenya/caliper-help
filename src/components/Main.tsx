@@ -7,6 +7,7 @@ import {useSelector} from "react-redux";
 import {StoreType} from "../BLL/store";
 import {InitialStateType, ModelType} from "../BLL/cars-reducer";
 import {Link} from "react-router-dom";
+import {LinkButton} from "../common/Button/LinkButton";
 
 export type MainPropsType = {
     setActive: (status: boolean) => void
@@ -39,7 +40,7 @@ export const Main = ({setActive, setInfo}: MainPropsType) => {
 
     return (
         <div>
-            <Link to={'/send'}>send</Link>
+            <LinkButton link={'/send'}>Форма для отправки информации</LinkButton>
             <MyInput onChangeText={handleInputValue} className={s.input}/>
             <Cars filterCars={filterCars} openCarType={openCarType}/>
             <CarModels currentCarModels={currentCarModels} openModelInfo={openModelInfo}/>
