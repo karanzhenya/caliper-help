@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import s from './App.module.css';
+import s from './App.module.scss';
 import {useDispatch, useSelector} from "react-redux";
 import {StoreType} from "./BLL/store";
 import {setCarsTC} from "./BLL/cars-reducer";

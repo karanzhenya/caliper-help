@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import MyInput from "../common/Input/MyInput";
-import s from "../App.module.css";
+import s from "./Main.module.scss"
 import {Cars} from "./Cars";
 import {CarModels} from "./CarModels";
 import {useSelector} from "react-redux";
 import {StoreType} from "../BLL/store";
 import {InitialStateType, ModelType} from "../BLL/cars-reducer";
-import {Link} from "react-router-dom";
 import {LinkButton} from "../common/Button/LinkButton";
 
 export type MainPropsType = {
@@ -37,11 +36,10 @@ export const Main = ({setActive, setInfo}: MainPropsType) => {
         }
     }
     const filterCars = allCars.filter(c => c.name.includes(inputValue.toUpperCase()))
-
     return (
         <div>
             <LinkButton link={'/send'}>Форма для отправки информации</LinkButton>
-            <MyInput onChangeText={handleInputValue} className={s.input}/>
+            <MyInput placeholder={"Марка авто"} onChangeText={handleInputValue} className={s.input}/>
             <Cars filterCars={filterCars} openCarType={openCarType}/>
             <CarModels currentCarModels={currentCarModels} openModelInfo={openModelInfo}/>
         </div>
