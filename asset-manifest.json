@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/karanzhenya.github.io/support/static/css/main.a0df0c83.css",
+    "main.js": "/karanzhenya.github.io/support/static/js/main.a32601bb.js",
+    "index.html": "/karanzhenya.github.io/support/index.html",
+    "main.a0df0c83.css.map": "/karanzhenya.github.io/support/static/css/main.a0df0c83.css.map",
+    "main.a32601bb.js.map": "/karanzhenya.github.io/support/static/js/main.a32601bb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0df0c83.css",
+    "static/js/main.a32601bb.js"
+  ]
+}
