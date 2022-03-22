@@ -1,6 +1,6 @@
 {
   "name": "supports",
-  "homepage": "https://karanzhenya.github.io/support/",
+  "homepage": "https://karanzhenya.github.io/support",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +11,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.0",
+    "@types/lodash": "^4.14.180",
     "@types/node": "^16.11.22",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",

@@ -27,13 +27,13 @@ const App = () => {
         dispatch(setCarsTC())
     }, [dispatch])
 
-
+    //console.log('APP render')
     return (
         <BrowserRouter>
             <div className={s.wrapper}>
                 <Modal active={active} setActive={setActive}>{info}</Modal>
                 <Routes>
-                    <Route path={'/'} element={<Main setActive={setActive} setInfo={setInfo}/>}/>
+                    <Route path={'/support'} element={<Main setActive={setActive} setInfo={setInfo}/>}/>
                     <Route path={'/send'} element={<Form/>}/>
                 </Routes>
                 {isLoading && <CircularProgress size={100} className={s.loading}/>}

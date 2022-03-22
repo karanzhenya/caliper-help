@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import MyInput from "../common/Input/MyInput";
 import s from "./Main.module.scss"
 import {Cars} from "./Cars";
@@ -7,6 +7,7 @@ import {useSelector} from "react-redux";
 import {StoreType} from "../BLL/store";
 import {InitialStateType, ModelType} from "../BLL/cars-reducer";
 import {LinkButton} from "../common/Button/LinkButton";
+import {debounce} from 'lodash';
 
 export type MainPropsType = {
     setActive: (status: boolean) => void
@@ -18,6 +19,20 @@ export const Main = ({setActive, setInfo}: MainPropsType) => {
 
     const [currentCarModels, setCurrentCarModels] = useState<Array<ModelType>>([])
     const [searchModel, setSearchModel] = useState<string>()
+
+    useEffect(() => {
+        setCurrentCarModels([])
+        if (typeof searchModel === "string") {
+            const filteredModels = allModels.filter((fil: ModelType) => fil.type.toLowerCase().includes(searchModel))
+            setCurrentCarModels(filteredModels)
+        }
+        if (searchModel === '') {
+            setCurrentCarModels([])
+        }
+    }, [searchModel])
+
+    const allModels: ModelType[] = []
+    allCars.map(ac => ac.models.forEach(m => allModels.push(m)))
 
     const openCarType = (id: string) => {
         setCurrentCarModels([])
@@ -36,20 +51,17 @@ export const Main = ({setActive, setInfo}: MainPropsType) => {
             setInfo(currentCarModelInfo.info)
         }
     }
-    const search = (value: string) => {
+    const onChangeSearchValue = (value: string) => {
         setSearchModel(value)
     }
-    /*const debouncedChangeHandler = useCallback(debounce(onChangeSearchValue, 400), [packs.searchValue]);*/
-    const arr: ModelType[] = []
-    allCars.map(ac => ac.models.forEach(m => arr.push(m)))
-    const filt = arr.filter((fil: any) => fil.type.toLowerCase().includes(searchModel))
+    const debouncedChangeHandler = useCallback(debounce(onChangeSearchValue, 2000), []);
+    //console.log('MAIN render')
     return (
         <div>
             <LinkButton link={'/send'}>Форма для отправки информации</LinkButton>
-            <MyInput placeholder={"Поиск по модели"} onChangeText={search} className={s.input}/>
+            <MyInput placeholder={"Поиск по модели"} onChangeText={debouncedChangeHandler} className={s.input}/>
             <Cars filterCars={allCars} openCarType={openCarType}/>
             <CarTypeList modelsData={currentCarModels} openModelInfo={openModelInfo}/>
-            {filt && <CarTypeList openModelInfo={openModelInfo} modelsData={filt}/>}
         </div>
     );
 };

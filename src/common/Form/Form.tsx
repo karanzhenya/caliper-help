@@ -36,7 +36,7 @@ const Form = () => {
 
     return <div className={s.containerForm}>
         <form onSubmit={formik.handleSubmit} className={s.forms}>
-            <LinkButton link={'/'}>На главную</LinkButton>
+            <LinkButton link={'/support'}>На главную</LinkButton>
             <div className={s.test}>Введите название автомобиля, <p> направление суппортов</p><p> и нажмите кнопку
                 отправить!</p>
             </div>

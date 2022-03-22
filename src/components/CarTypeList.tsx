@@ -7,7 +7,7 @@ type carModelsPropsType = {
     openModelInfo: (id: string) => void
     modelsData: Array<ModelType>
 }
-
+//console.log('CARLIST render')
 export const CarTypeList = (props: carModelsPropsType) => {
     return <div className={s.containerModels}>
             {props.modelsData.map(cc => <MyButton key={cc.id} id={cc.id}

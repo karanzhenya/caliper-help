@@ -8,7 +8,7 @@ type carsPropsType = {
     openCarType: (id: string) => void
 }
 
-
+//console.log('CArs render')
 export const Cars = (props: carsPropsType) => {
     return <div className={s.containerCars}>
         {props.filterCars.map(c => <MyButton key={c.id} id={c.id} openCarType={props.openCarType}>{c.name}</MyButton>)}
