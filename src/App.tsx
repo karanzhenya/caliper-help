@@ -6,7 +6,7 @@ import {setCarsTC} from "./BLL/cars-reducer";
 import Modal from "./common/Modal/Modal";
 import Form from "./common/Form/Form";
 import CircularProgress from "@mui/material/CircularProgress";
-import {HashRouter, Route, Routes} from 'react-router-dom'
+import {BrowserRouter, HashRouter, Route, Routes} from 'react-router-dom'
 import {Main} from "./components/Main";
 
 export type DataType = {
@@ -29,7 +29,7 @@ const App = () => {
 
 
     return (
-        <HashRouter>
+        <BrowserRouter>
             <div className={s.wrapper}>
                 <Modal active={active} setActive={setActive}>{info}</Modal>
                 <Routes>
@@ -38,7 +38,7 @@ const App = () => {
                 </Routes>
                 {isLoading && <CircularProgress size={100} className={s.loading}/>}
             </div>
-        </HashRouter>
+        </BrowserRouter>
     );
 }
 
