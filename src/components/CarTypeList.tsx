@@ -5,12 +5,12 @@ import s from './Cars.module.css'
 
 type carModelsPropsType = {
     openModelInfo: (id: string) => void
-    currentCarModels: Array<ModelType>
+    modelsData: Array<ModelType>
 }
 
-export const CarModels = (props: carModelsPropsType) => {
+export const CarTypeList = (props: carModelsPropsType) => {
     return <div className={s.containerModels}>
-            {props.currentCarModels.map(cc => <MyButton key={cc.id} id={cc.id}
+            {props.modelsData.map(cc => <MyButton key={cc.id} id={cc.id}
                                                   openCarType={props.openModelInfo}>{cc.type}</MyButton>)}
     </div>
 }

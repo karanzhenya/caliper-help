@@ -6,7 +6,7 @@ import {setCarsTC} from "./BLL/cars-reducer";
 import Modal from "./common/Modal/Modal";
 import Form from "./common/Form/Form";
 import CircularProgress from "@mui/material/CircularProgress";
-import {BrowserRouter, HashRouter, Route, Routes} from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import {Main} from "./components/Main";
 
 export type DataType = {
