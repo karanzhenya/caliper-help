@@ -23,7 +23,7 @@ export const Main = ({setActive, setInfo}: MainPropsType) => {
     useEffect(() => {
         setCurrentCarModels([])
         if (typeof searchModel === "string") {
-            const filteredModels = allModels.filter((fil: ModelType) => fil.type.toLowerCase().includes(searchModel))
+            const filteredModels = allModels.filter((fil: ModelType) => fil.type.toLowerCase().includes(searchModel.toLowerCase().trim()))
             setCurrentCarModels(filteredModels)
         }
         if (searchModel === '') {
