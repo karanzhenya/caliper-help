@@ -8,12 +8,17 @@ import {StoreType} from "../BLL/store";
 import {InitialStateType, ModelType} from "../BLL/cars-reducer";
 import {LinkButton} from "../common/Button/LinkButton";
 import {debounce} from 'lodash';
+import axios from "axios";
 
 export type MainPropsType = {
     setActive: (status: boolean) => void
     setInfo: (info: string) => void
 }
 
+const instance = axios.create({
+    baseURL: 'http://localhost:3001',
+    withCredentials: true
+})
 export const Main = ({setActive, setInfo}: MainPropsType) => {
     const allCars = useSelector<StoreType, InitialStateType>(state => state.cars)
 
@@ -59,6 +64,11 @@ export const Main = ({setActive, setInfo}: MainPropsType) => {
     return (
         <div>
             <LinkButton link={'/send'}>Форма для отправки информации</LinkButton>
+            <button onClick={() => {
+                instance.get('/data').then((res)=> {
+                    console.log(res.data)
+                })
+            }}>click</button>
             <MyInput placeholder={"Поиск по модели"} onChangeText={debouncedChangeHandler} className={s.input}/>
             <Cars filterCars={allCars} openCarType={openCarType}/>
             <CarTypeList modelsData={currentCarModels} openModelInfo={openModelInfo}/>
