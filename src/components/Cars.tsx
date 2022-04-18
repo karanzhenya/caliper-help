@@ -1,4 +1,4 @@
-import MyButton from "../common/Button/MyButton";
+import SingleItem from "../common/Button/SingleItem";
 import React from "react";
 import {InitialStateType} from "../BLL/cars-reducer";
 import s from './Cars.module.css'
@@ -7,10 +7,8 @@ type carsPropsType = {
     filterCars: InitialStateType
     openCarType: (id: string) => void
 }
-
-//console.log('CArs render')
-export const Cars = (props: carsPropsType) => {
+export const Cars = ({filterCars, openCarType}: carsPropsType) => {
     return <div className={s.containerCars}>
-        {props.filterCars.map(c => <MyButton key={c.id} id={c.id} openCarType={props.openCarType}>{c.name}</MyButton>)}
+        {filterCars.map(c => <SingleItem key={c._id} id={c._id} callback={openCarType}>{c.name}</SingleItem>)}
     </div>
 }

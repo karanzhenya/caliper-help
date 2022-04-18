@@ -8,7 +8,6 @@ import Button from "@mui/material/Button";
 import {LinkButton} from "../Button/LinkButton";
 import {DataType} from "../../App";
 
-
 const Form = () => {
 
     const dispatch = useDispatch()
@@ -36,7 +35,7 @@ const Form = () => {
 
     return <div className={s.containerForm}>
         <form onSubmit={formik.handleSubmit} className={s.forms}>
-            <LinkButton link={'/support'}>На главную</LinkButton>
+            <LinkButton link={'/car'}>На главную</LinkButton>
             <div className={s.test}>Введите название автомобиля, <p> направление суппортов</p><p> и нажмите кнопку
                 отправить!</p>
             </div>

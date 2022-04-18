@@ -1,16 +1,16 @@
-import MyButton from "../common/Button/MyButton";
+import SingleItem from "../common/Button/SingleItem";
 import React from "react";
-import {ModelType} from "../BLL/cars-reducer";
 import s from './Cars.module.css'
+import {CarSpecType} from "../BLL/car_spec-reducer";
 
 type carModelsPropsType = {
-    openModelInfo: (id: string) => void
-    modelsData: Array<ModelType>
+    openModelInfo: (id: string) => void,
+    carSpecs: CarSpecType[]
 }
-//console.log('CARLIST render')
-export const CarTypeList = (props: carModelsPropsType) => {
+export const CarTypeList = ({carSpecs, openModelInfo}: carModelsPropsType) => {
+
     return <div className={s.containerModels}>
-            {props.modelsData.map(cc => <MyButton key={cc.id} id={cc.id}
-                                                  openCarType={props.openModelInfo}>{cc.type}</MyButton>)}
+        {carSpecs.map(cc => <SingleItem key={cc._id} id={cc._id}
+                                        callback={openModelInfo}>{cc.type}</SingleItem>)}
     </div>
 }

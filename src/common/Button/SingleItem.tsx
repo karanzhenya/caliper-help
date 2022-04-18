@@ -1,28 +1,27 @@
 import React, {ButtonHTMLAttributes, DetailedHTMLProps} from 'react'
-import s from './MyButton.module.css'
+import s from './SingleItem.module.css'
 
 type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 
 type SuperButtonPropsType = DefaultButtonPropsType & {
-    red?: boolean
     id: string
-    openCarType: (id: string) => void
+    callback: (id: string) => void
 }
 
-const MyButton: React.FC<SuperButtonPropsType> = (
+const SingleItem: React.FC<SuperButtonPropsType> = (
     {
-        red, className, openCarType, id,
+         className, callback, id,
         ...restProps
     }
 ) => {
-    const finalClassName = `${s.button} ${red ? s.red : s.default} ${className}`
+    const finalClassName = `${s.button} ${s.default} ${className}`
 
     return (
-        <button onClick={() => openCarType(id)}
+        <button onClick={() => {callback(id)}}
             className={finalClassName}
             {...restProps}
         />
     )
 }
 
-export default MyButton
+export default SingleItem

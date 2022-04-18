@@ -1,21 +1,15 @@
 import {Dispatch} from "redux";
-import {fetchCars} from "../promiseCars";
 import {api} from "../api/api";
 import {DataType} from "../App";
 import {changeIsLoading, setMessage} from "./app-reducer";
+import {AxiosResponse} from "axios";
 
-export type ModelType = {
-    id: string,
-    type: string,
-    info: string
-}
 export type CarType = {
-    id: string,
-    name: string,
-    models: ModelType[],
+    _id: string,
+    name: string
 }
 
-export type InitialStateType = Array<CarType>
+export type InitialStateType = CarType[]
 export type ActionsType = ReturnType<typeof setCarsAC>
 
 const initialState = [] as InitialStateType
@@ -36,12 +30,11 @@ export const setCarsAC = (cars: InitialStateType) => {
 }
 
 export const setCarsTC = () => (dispatch: Dispatch) => {
-    fetchCars.then((res: InitialStateType) => {
-        dispatch(setCarsAC(res))
-    }).catch((err) => {
-        console.log(err)
+    api.getCars().then((res: AxiosResponse<InitialStateType>) => {
+        dispatch(setCarsAC(res.data))
     })
 }
+
 
 export const sendCarDataTC = (data: DataType) => (dispatch: Dispatch) => {
     const message = 'Спасибо, что отправили данные по ' + data.car + '. В ближайшее время добавлю информацию на сайт.'
