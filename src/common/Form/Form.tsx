@@ -1,5 +1,5 @@
 import React from "react";
-import s from './Form.module.css';
+import s from './Form.module.scss';
 import {useFormik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {sendCarDataTC} from "../../BLL/cars-reducer";

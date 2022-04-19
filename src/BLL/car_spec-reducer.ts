@@ -1,6 +1,7 @@
 import {Dispatch} from "redux";
 import {api} from "../api/api";
 import {AxiosResponse} from "axios";
+import {setError} from "./app-reducer";
 
 export type CarSpecType = {
     _id: string,
@@ -36,6 +37,11 @@ export const setCarSpecsTC = (id: string) => (dispatch: Dispatch) => {
 
 export const setFindedCarSpecs = (type: string) => (dispatch: Dispatch) => {
     api.findCarSpecsByType(type).then((res: AxiosResponse<InitialStateType>) => {
-        dispatch(setCarSpecsAC(res.data))
+        if (res.data.length < 1) {
+            dispatch(setError('Not found'))
+        }
+        else {
+            dispatch(setCarSpecsAC(res.data))
+        }
     })
 }

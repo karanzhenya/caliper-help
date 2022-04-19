@@ -1,5 +1,5 @@
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes, KeyboardEvent} from 'react'
-import s from './MyInput.module.css'
+import s from './MyInput.module.scss'
 
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
@@ -39,7 +39,7 @@ const MyInput: React.FC<SuperInputTextPropsType> = (
     const finalInputClassName = `${s.inputCommon} ${error ? s.errorInput : s.superInput} ${className}`
 
     return (
-        <>
+        <div>
             <input
                 type={'text'}
                 onChange={onChangeCallback}
@@ -48,7 +48,7 @@ const MyInput: React.FC<SuperInputTextPropsType> = (
                 {...restProps}
             />
             {error ? <span className={finalSpanClassName}>{error}</span> : <div className={s.div}/>}
-        </>
+        </div>
     )
 }
 

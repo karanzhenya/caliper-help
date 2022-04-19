@@ -2,7 +2,8 @@ import axios from "axios";
 import {DataType} from "../App";
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3033/'
+    //baseURL: 'http://localhost:3033/'
+    baseURL: 'https://cars-caliper.herokuapp.com/'
 })
 
 export const api = {

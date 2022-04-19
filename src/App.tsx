@@ -8,6 +8,7 @@ import Form from "./common/Form/Form";
 import CircularProgress from "@mui/material/CircularProgress";
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import {Main} from "./components/Main";
+import {Preloader} from "./common/Preloader/Preloader";
 
 export type DataType = {
     car: string
@@ -34,7 +35,7 @@ const App = () => {
                     <Route path={'/car'} element={<Main setActive={setActive} setInfo={setInfo}/>}/>
                     <Route path={'/send'} element={<Form/>}/>
                 </Routes>
-                {isLoading && <CircularProgress size={100} className={s.loading}/>}
+                {isLoading && <Preloader/>}
             </div>
         </BrowserRouter>
     );

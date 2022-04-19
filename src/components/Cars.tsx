@@ -1,7 +1,7 @@
 import SingleItem from "../common/Button/SingleItem";
 import React from "react";
 import {InitialStateType} from "../BLL/cars-reducer";
-import s from './Cars.module.css'
+import s from './Cars.module.scss'
 
 type carsPropsType = {
     filterCars: InitialStateType

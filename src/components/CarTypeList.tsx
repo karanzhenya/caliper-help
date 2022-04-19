@@ -1,6 +1,6 @@
 import SingleItem from "../common/Button/SingleItem";
 import React from "react";
-import s from './Cars.module.css'
+import s from './Cars.module.scss'
 import {CarSpecType} from "../BLL/car_spec-reducer";
 
 type carModelsPropsType = {

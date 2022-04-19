@@ -1,0 +1,39 @@
+.inputCommon {
+  padding: 10px;
+  border: 0;
+  font-family: inherit;
+  font-size: inherit;
+  margin-bottom: 7px;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.superInput {
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.errorInput {
+  box-shadow: 0 0 15px 4px rgba(255, 25, 33, 0.93);
+
+  &:hover {
+    box-shadow: 0 0 4px rgba(255, 25, 33, 0.93);
+  }
+}
+
+.div {
+  height: 25px;
+}
+
+.error {
+  height: 25px;
+  position: relative;
+  font-family: Cambria, serif;
+  font-size: large;
+  color: rgba(255, 25, 33, 0.93);
+  margin-left: 20px;
+}

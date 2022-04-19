@@ -1,0 +1,18 @@
+.forms {
+  display: flex;
+  position: absolute;
+  margin: 10% 40%;
+  gap: 5px;
+  color: #444444;
+  box-shadow: 0 0 15px 4px rgb(176, 174, 174);
+  border-radius: 15px;
+  background-color: #f3f0f0;
+  flex-direction: column;
+  padding: 20px;
+  z-index: 1;
+
+  .formButton {
+    margin-top: 20px;
+  }
+}
+
