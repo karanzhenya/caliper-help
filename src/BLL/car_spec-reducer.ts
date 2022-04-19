@@ -41,6 +41,7 @@ export const setFindedCarSpecs = (type: string) => (dispatch: Dispatch) => {
             dispatch(setError('Not found'))
         }
         else {
+            dispatch(setError(''))
             dispatch(setCarSpecsAC(res.data))
         }
     })
