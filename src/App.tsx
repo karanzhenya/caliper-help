@@ -9,6 +9,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import {Main} from "./components/Main";
 import {Preloader} from "./common/Preloader/Preloader";
 import News from "./components/News/News";
+import Navbar from "./components/Navbar/Navbar";
 
 export type DataType = {
     car: string
@@ -31,6 +32,7 @@ const App = () => {
         <BrowserRouter>
             <div className={s.wrapper}>
                 <Modal active={active} setActive={setActive}>{info}</Modal>
+                <Navbar/>
                 <Routes>
                     <Route path={'/car'} element={<Main setActive={setActive} setInfo={setInfo}/>}/>
                     <Route path={'/send'} element={<Form/>}/>

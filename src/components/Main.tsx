@@ -6,7 +6,6 @@ import {CarTypeList} from "./CarTypeList";
 import {useDispatch, useSelector} from "react-redux";
 import {StoreType} from "../BLL/store";
 import {InitialStateType} from "../BLL/cars-reducer";
-import {LinkButton} from "../common/Button/LinkButton";
 import {debounce} from 'lodash';
 import {CarSpecType, setCarSpecsAC, setCarSpecsTC, setFindedCarSpecs} from "../BLL/car_spec-reducer";
 import {Preloader} from "../common/Preloader/Preloader";
@@ -45,7 +44,6 @@ export const Main = ({setActive, setInfo}: MainPropsType) => {
     }
     return (
         <div>
-            <LinkButton link={'/send'}>Форма для отправки информации</LinkButton>
             <MyInput placeholder={"Поиск по модели"} error={error} onChangeText={debouncedChangeHandler}
                      className={s.input}/>
             <Cars filterCars={allCars} openCarType={openCarType}/>

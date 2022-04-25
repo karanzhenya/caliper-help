@@ -5,7 +5,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {sendCarDataTC} from "../../BLL/cars-reducer";
 import {StoreType} from "../../BLL/store";
 import Button from "@mui/material/Button";
-import {LinkButton} from "../Button/LinkButton";
 import {DataType} from "../../App";
 
 const Form = () => {
@@ -35,7 +34,6 @@ const Form = () => {
 
     return <div className={s.containerForm}>
         <form onSubmit={formik.handleSubmit} className={s.forms}>
-            <LinkButton link={'/car'}>На главную</LinkButton>
             <div className={s.test}>Введите название автомобиля, <p> направление суппортов</p><p> и нажмите кнопку
                 отправить!</p>
             </div>

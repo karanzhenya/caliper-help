@@ -1,4 +1,11 @@
 .input {
   position: relative;
+  margin-top: 5px;
   left: 40%;
+}
+
+@media screen and (max-width: 768px) {
+  .input {
+    left: 15%;
+  }
 }
