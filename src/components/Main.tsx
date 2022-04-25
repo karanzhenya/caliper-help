@@ -10,7 +10,6 @@ import {LinkButton} from "../common/Button/LinkButton";
 import {debounce} from 'lodash';
 import {CarSpecType, setCarSpecsAC, setCarSpecsTC, setFindedCarSpecs} from "../BLL/car_spec-reducer";
 import {Preloader} from "../common/Preloader/Preloader";
-import {setError} from "../BLL/app-reducer";
 
 export type MainPropsType = {
     setActive: (status: boolean) => void

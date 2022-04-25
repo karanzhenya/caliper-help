@@ -5,10 +5,10 @@ import {StoreType} from "./BLL/store";
 import {setCarsTC} from "./BLL/cars-reducer";
 import Modal from "./common/Modal/Modal";
 import Form from "./common/Form/Form";
-import CircularProgress from "@mui/material/CircularProgress";
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import {Main} from "./components/Main";
 import {Preloader} from "./common/Preloader/Preloader";
+import News from "./components/News/News";
 
 export type DataType = {
     car: string
@@ -34,6 +34,7 @@ const App = () => {
                 <Routes>
                     <Route path={'/car'} element={<Main setActive={setActive} setInfo={setInfo}/>}/>
                     <Route path={'/send'} element={<Form/>}/>
+                    <Route path={'/news'} element={<News/>}/>
                 </Routes>
                 {isLoading && <Preloader/>}
             </div>
