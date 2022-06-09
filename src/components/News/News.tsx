@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import s from './News.module.scss';
 import NewsList from "./NewsList";
 
@@ -10,12 +10,12 @@ export type NewsType = {
     updatedDate: string,
     types: UpdatesType[]
 }
+
 const news_updated_25_04: NewsType = {
-    updatedDate: "25.04.2022",
-    types: [
-        {
-            type: "Mitsubishi L200 2006-2015"
-        },
+    updatedDate: '25.04.2022',
+    types: [{
+        type: "Mitsubishi L200 2006-2015"
+    },
         {
             type: "Mitsubishi FTO"
         }
@@ -58,9 +58,7 @@ const news_updated_25_04: NewsType = {
         ,
         {
             type: "Chevrolet Cruze 2015-"
-        }
-        ,
-    ]
+        }]
 }
 const news_updated_04_05: NewsType = {
     updatedDate: "04.05.2022",
@@ -122,13 +120,12 @@ const news_updated_04_05: NewsType = {
     ]
 }
 
-function News() {
-    return (
-        <div className={s.newsWrapper}>
-            <NewsList newsList={news_updated_25_04}/>
-            <NewsList newsList={news_updated_04_05}/>
-        </div>
-    );
-}
-
-export default News;
+export default memo(function News() {
+        return (
+            <div className={s.newsWrapper}>
+                <NewsList newsList={news_updated_25_04}/>
+                <NewsList newsList={news_updated_04_05}/>
+            </div>
+        );
+    }
+)

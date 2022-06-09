@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {memo, useState} from "react";
 import "./Navbar.scss";
 import {Link} from "react-router-dom";
 
@@ -17,7 +17,8 @@ const navigationLinks = [
     },
 ]
 
-function Navbar() {
+export default memo(function Navbar() {
+    console.log('navbar')
     const [active, setActive] = useState("nav_menu");
     const [icon, setIcon] = useState("nav_toggler");
     const navToggle = () => {
@@ -49,6 +50,4 @@ function Navbar() {
             </div>
         </nav>
     );
-}
-
-export default Navbar;
+})

@@ -6,7 +6,7 @@ import {setCarsTC} from "./BLL/cars-reducer";
 import Modal from "./common/Modal/Modal";
 import Form from "./common/Form/Form";
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import {Main} from "./components/Main";
+import Main from "./components/Main";
 import {Preloader} from "./common/Preloader/Preloader";
 import News from "./components/News/News";
 import Navbar from "./components/Navbar/Navbar";
