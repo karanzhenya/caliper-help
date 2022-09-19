@@ -9,7 +9,7 @@ export default memo(function NewsList({newsList}: NewsListPropsType) {
     return (
         <>
 
-            <h1>Последние обновления {Object.keys(newsList)[1]}</h1>
+            <h1>Последние обновления {newsList.updatedDate}</h1>
             <h3>Добавлены авто</h3>
             {newsList.types.map((n) => {
                 return <ul>
