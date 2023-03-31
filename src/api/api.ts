@@ -3,7 +3,7 @@ import {DataType} from "../App";
 
 const instance = axios.create({
     //baseURL: 'http://localhost:3033/'
-    baseURL: 'https://cars-caliper.herokuapp.com/'
+    baseURL: 'caliper-server-production.up.railway.app/'
 })
 
 export const api = {
