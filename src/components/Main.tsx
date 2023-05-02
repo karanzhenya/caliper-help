@@ -43,7 +43,7 @@ export default memo(function Main({setActive, setInfo}: MainPropsType) {
             return <Preloader/>
         }
         const sortingCars = allCars.sort((a, b) => a.name > b.name ? 1 : -1)
-        const sortingCarSpecs = carSpecs.sort((a, b) => a.type > b.type ? 1 : -1)
+        const sortingCarSpecs = carSpecs.sort((a, b) => a.modelType > b.modelType ? 1 : -1)
         return (
             <div>
                 <MyInput placeholder={"Поиск по модели"} error={error} onChangeText={debouncedChangeHandler}

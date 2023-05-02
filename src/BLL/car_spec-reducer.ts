@@ -5,7 +5,7 @@ import {setError} from "./app-reducer";
 
 export type CarSpecType = {
     _id: string,
-    type: string,
+    modelType: string,
     info: string
 }
 

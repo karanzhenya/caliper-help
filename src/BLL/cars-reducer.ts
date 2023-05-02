@@ -31,6 +31,7 @@ export const setCarsAC = (cars: InitialStateType) => {
 
 export const setCarsTC = () => (dispatch: Dispatch) => {
     api.getCars().then((res: AxiosResponse<InitialStateType>) => {
+        console.log(res.data)
         dispatch(setCarsAC(res.data))
     })
 }

@@ -36,7 +36,7 @@ export default memo(function Navbar() {
             </Link>
             <ul className={active}>
                 {navigationLinks.map((item) =>
-                    <li className="nav_item">
+                    <li className="nav_item" key={item.link}>
                         <Link to={item.link} className="nav_link">
                             {item.desc}
                         </Link>

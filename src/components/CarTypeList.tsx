@@ -10,7 +10,7 @@ type carModelsPropsType = {
 export default memo(function CarTypeList({carSpecs, openModelInfo}: carModelsPropsType) {
         return <div className={s.containerModels}>
             {carSpecs.map(cc => <SingleItem key={cc._id} id={cc._id}
-                                            callback={openModelInfo}>{cc.type}</SingleItem>)}
+                                            callback={openModelInfo}>{cc.modelType}</SingleItem>)}
         </div>
     }
 )
