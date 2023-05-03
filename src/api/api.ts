@@ -2,8 +2,8 @@ import axios from "axios";
 import {DataType} from "../App";
 
 const instance = axios.create({
-    //baseURL: 'https://cars-caliper.herokuapp.com/',
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://cars-express-back.vercel.app/',
+    //baseURL: 'http://localhost:5000',
     headers: {
         withCredentials: true,
     }
