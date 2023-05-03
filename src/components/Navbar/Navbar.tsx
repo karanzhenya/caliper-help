@@ -4,6 +4,10 @@ import {Link} from "react-router-dom";
 
 const navigationLinks = [
     {
+        desc: "ВАЖНАЯ ИНФОРМАЦИЯ",
+        link: "/important"
+    },
+    {
         desc: "Главная",
         link: "/car"
     },
@@ -14,7 +18,7 @@ const navigationLinks = [
     {
         desc: "Обновления",
         link: "/news"
-    },
+    }
 ]
 
 export default memo(function Navbar() {

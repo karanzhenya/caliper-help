@@ -10,6 +10,7 @@ import Main from "./components/Main";
 import {Preloader} from "./common/Preloader/Preloader";
 import News from "./components/News/News";
 import Navbar from "./components/Navbar/Navbar";
+import Important from "./components/Important";
 
 export type DataType = {
     car: string
@@ -37,6 +38,7 @@ const App = () => {
                     <Route path={'/car'} element={<Main setActive={setActive} setInfo={setInfo}/>}/>
                     <Route path={'/send'} element={<Form/>}/>
                     <Route path={'/news'} element={<News/>}/>
+                    <Route path={'/important'} element={<Important/>}/>
                 </Routes>
                 {isLoading && <Preloader/>}
             </div>
