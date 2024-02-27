@@ -1,0 +1,21 @@
+.formContainer {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  form {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    .infoField {
+      display: grid;
+      width: 100%;
+      row-gap: 5px;
+    }
+  }
+}

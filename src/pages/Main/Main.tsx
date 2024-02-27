@@ -1,33 +1,35 @@
 import React, {memo, useCallback} from 'react';
-import MyInput from "../common/Input/MyInput";
+import MyInput from "../../common/Input/MyInput";
 import s from "./Main.module.scss"
-import Cars from "./Cars";
-import CarTypeList from "./CarTypeList";
+import Cars from "../../components/Cars/Cars";
+import CarTypeList from "../CarTypeList/CarTypeList";
 import {useDispatch, useSelector} from "react-redux";
-import {StoreType} from "../BLL/store";
-import {InitialStateType} from "../BLL/cars-reducer";
+import {StoreType} from "../../BLL/store";
+import {InitialStateType} from "../../BLL/cars-reducer";
 import {debounce} from 'lodash';
-import {CarSpecType, setCarSpecsAC, setCarSpecsTC, setFindedCarSpecs} from "../BLL/car_spec-reducer";
-import {Preloader} from "../common/Preloader/Preloader";
+import {CarSpecType, setCarSpecsAC, setCarSpecsTC, setFindedCarSpecs} from "../../BLL/car_spec-reducer";
+import {Preloader} from "../../common/Preloader/Preloader";
 
 export type MainPropsType = {
     setActive: (status: boolean) => void
     setInfo: (info: string) => void
+    setCarId: (info: string) => void
 }
-export default memo(function Main({setActive, setInfo}: MainPropsType) {
+export default memo(function Main({setActive, setInfo, setCarId}: MainPropsType) {
         const allCars = useSelector<StoreType, InitialStateType>(state => state.cars)
         const carSpecs = useSelector<StoreType, CarSpecType[]>(state => state.carSpecs)
         const error = useSelector<StoreType, string>(state => state.app.error)
         const dispatch = useDispatch();
 
-        const openCarType = (id: string) => {
+        const openCarType = useCallback((id: string) => {
             dispatch(setCarSpecsTC(id))
-        }
+        }, [dispatch])
         const openModelInfo = (id: string) => {
             setActive(true)
             let currentCarModelInfo = carSpecs.find(cc => cc._id === id)
             if (currentCarModelInfo) {
                 setInfo(currentCarModelInfo.info)
+                setCarId(currentCarModelInfo._id)
             }
         }
         const onChangeSearchValue = (value: string) => {
@@ -44,12 +46,14 @@ export default memo(function Main({setActive, setInfo}: MainPropsType) {
         }
         const sortingCars = allCars.sort((a, b) => a.name > b.name ? 1 : -1)
         const sortingCarSpecs = carSpecs.sort((a, b) => a.modelType > b.modelType ? 1 : -1)
+        console.log(allCars)
+        console.log(carSpecs)
         return (
             <div>
                 <MyInput placeholder={"Поиск по модели"} error={error} onChangeText={debouncedChangeHandler}
                          className={s.input}/>
-                <Cars filterCars={sortingCars} openCarType={openCarType}/>
-                <CarTypeList openModelInfo={openModelInfo} carSpecs={sortingCarSpecs}/>
+                {/*<Cars filterCars={sortingCars} openCarType={openCarType}/>*/}
+                {/*<CarTypeList openModelInfo={openModelInfo} carSpecs={sortingCarSpecs}/>*/}
             </div>
         );
     }

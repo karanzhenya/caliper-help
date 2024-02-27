@@ -1,28 +1,12 @@
 import React, {memo, useState} from "react";
 import "./Navbar.scss";
 import {Link} from "react-router-dom";
-
-const navigationLinks = [
-    {
-        desc: "ВАЖНАЯ ИНФОРМАЦИЯ",
-        link: "/important"
-    },
-    {
-        desc: "Главная",
-        link: "/car"
-    },
-    {
-        desc: "Форма для отправки информации",
-        link: "/send"
-    },
-    {
-        desc: "Обновления",
-        link: "/news"
-    }
-]
+import MenuList from "./MenuList/MenuList";
+import {navigationLinks} from "../../features/contstants/Links";
+import BurgerMenu from "../../common/BurgerMenu/BurgerMenu";
 
 export default memo(function Navbar() {
-    console.log('navbar')
+
     const [active, setActive] = useState("nav_menu");
     const [icon, setIcon] = useState("nav_toggler");
     const navToggle = () => {
@@ -33,25 +17,14 @@ export default memo(function Navbar() {
             setIcon("nav_toggler toggle");
         } else setIcon("nav_toggler");
     };
+
     return (
         <nav className="nav">
-            <Link to={navigationLinks[0].link} className="nav_brand">
+            <Link to={navigationLinks[1].link} className="nav_brand">
                 Помощник в определении сторон суппортов
             </Link>
-            <ul className={active}>
-                {navigationLinks.map((item) =>
-                    <li className="nav_item" key={item.link}>
-                        <Link to={item.link} className="nav_link">
-                            {item.desc}
-                        </Link>
-                    </li>
-                )}
-            </ul>
-            <div onClick={navToggle} className={icon}>
-                <div className="line1"/>
-                <div className="line2"/>
-                <div className="line3"/>
-            </div>
+            <MenuList activeClassName={active}/>
+            <BurgerMenu callback={navToggle} classNames={icon}/>
         </nav>
     );
 })

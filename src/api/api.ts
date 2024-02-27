@@ -1,5 +1,5 @@
 import axios from "axios";
-import {DataType} from "../App";
+import {FetchData} from "../BLL/cars-reducer";
 
 const instance = axios.create({
     baseURL: 'https://cars-express-back.vercel.app/',
@@ -10,8 +10,8 @@ const instance = axios.create({
 })
 
 export const api = {
-    sendCarData(data: DataType) {
-        return axios.post('https://sheet.best/api/sheets/f560259e-138c-4f1a-9a6d-6bc5fd10df5b', {...data})
+    sendCarData(data: FetchData) {
+        return instance.post('carspecs', {...data})
     },
     getCars() {
         return instance.get('cars')
@@ -21,5 +21,8 @@ export const api = {
     },
     findCarSpecsByType(type: string) {
         return instance.get(`/carspecs/search?modelType=${type}`)
+    },
+    updateCarModel(data: FetchData, modelId: string) {
+        return instance.put<FetchData>(`/update/${modelId}`, {...data})
     }
 }

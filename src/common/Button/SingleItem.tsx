@@ -10,17 +10,22 @@ type SuperButtonPropsType = DefaultButtonPropsType & {
 
 const SingleItem: React.FC<SuperButtonPropsType> = (
     {
-         className, callback, id,
+        className, callback, id,
         ...restProps
     }
 ) => {
     const finalClassName = `${s.button} ${s.default} ${className}`
 
     return (
-        <button onClick={() => {callback(id)}}
-            className={finalClassName}
-            {...restProps}
-        />
+        <div style={{display: "flex"}}>
+            <button onClick={() => {
+                callback(id)
+            }}
+                    className={finalClassName}
+                    {...restProps}
+            />
+        </div>
+
     )
 }
 
