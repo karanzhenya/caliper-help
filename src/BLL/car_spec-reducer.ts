@@ -2,6 +2,7 @@ import {Dispatch} from "redux";
 import {api} from "../api/api";
 import {AxiosResponse} from "axios";
 import {changeIsLoading, setError} from "./app-reducer";
+import {addUpdatedCarTC} from "./updated_car-reducer";
 import {FetchData} from "./cars-reducer";
 import {NewModelType} from "../common/AddNewModelForm/AddNewModelForm";
 

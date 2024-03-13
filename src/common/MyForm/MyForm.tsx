@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {updateCarModelInfo} from "../../BLL/car_spec-reducer";
 import s from './MyForm.module.scss'
+import {addUpdatedCarTC} from "../../BLL/updated_car-reducer";
 
 type DescriptionType = {
     front: 'спереди' | 'сзади'
@@ -22,6 +23,7 @@ function MyForm({modelType, modelId, carId, setActive}: MyFormPropsType) {
     const onSubmit: SubmitHandler<DescriptionType> = (data: DescriptionType) => {
         const generatedData = {modelType, info: `Передний - ${data.front}, задний - ${data.back}`, _car_id: carId}
         dispatch(updateCarModelInfo(generatedData, modelId))
+        dispatch(addUpdatedCarTC(modelType, carId, data.front, data.back))
         setActive(false)
     }
     return (

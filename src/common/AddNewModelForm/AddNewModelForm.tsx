@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {StoreType} from "../../BLL/store";
 import {CarType} from "../../BLL/cars-reducer";
 import {addNewCarModel} from "../../BLL/car_spec-reducer";
+import {addUpdatedCarTC} from "../../BLL/updated_car-reducer";
 
 export type NewModelType = {
     car: string
@@ -19,7 +20,11 @@ function AddNewModelForm() {
     const dispatch = useDispatch()
     const onSubmit: SubmitHandler<NewModelType> = (data) => {
         const currentCar = cars.find(car => car.name === data.car)
-        if (currentCar) dispatch(addNewCarModel(data, currentCar._id))
+        if (currentCar)
+        {
+            dispatch(addNewCarModel(data, currentCar._id))
+            dispatch(addUpdatedCarTC(data.model, currentCar._id, data.front, data.back))
+        }
     }
 
     return (
