@@ -60,6 +60,8 @@ export const addNewCarModel = (data: NewModelType, car_id: string) => (dispatch:
         info: `Передний - ${data.front}, задний - ${data.back}`
     }
     api.sendCarData(fetchData).then(() => {
+        dispatch(addUpdatedCarTC(fetchData))
+    }).then(() => {
         console.log(`Спасибо за данные об автомобиле ${data.car} - ${data.model}`)
     }).catch((err) => {
         console.log(err)
