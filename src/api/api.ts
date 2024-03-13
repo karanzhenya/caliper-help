@@ -24,5 +24,11 @@ export const api = {
     },
     updateCarModel(data: FetchData, modelId: string) {
         return instance.put<FetchData>(`/update/${modelId}`, {...data})
+    },
+    addUpdatedCar(data: FetchData) {
+        return instance.post<FetchData>(`/updated/cars`, {...data})
+    },
+    getUpdatedCars() {
+        return instance.get('/updated/cars')
     }
 }
